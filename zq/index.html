@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>中秋福利</title>
+  <style>
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+      text-align: center;
+    }
+    h1 {
+      color: #e67e22;
+      margin-bottom: 20px;
+    }
+    .festival-image {
+      max-width: 100%;
+      height: auto;
+      margin: 20px 0;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+    .download-btn {
+      background-color: #e67e22;
+      color: white;
+      border: none;
+      padding: 12px 24px;
+      font-size: 16px;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    .download-btn:hover {
+      background-color: #d35400;
+    }
+  </style>
+  <script>
+    // 页面加载时显示提示
+    window.onload = function() {
+      alert("仅供娱乐");
+    };
+
+    // 下载图片函数
+    function downloadImage() {
+      alert("快去领取福利～");
+      
+      // 图片URL（替换为实际图片地址）
+      const imageUrl = 'image.jpg';
+      
+      // 创建隐藏的iframe实现直接下载
+      const iframe = document.createElement('iframe');
+      iframe.style.display = 'none';
+      iframe.src = imageUrl;
+      
+      // 设置下载属性（需要服务器支持Content-Disposition）
+      const link = document.createElement('a');
+      link.href = imageUrl;
+      link.download = '中秋福利.jpg'; // 设置下载文件名
+      
+      // 添加到DOM并触发点击
+      document.body.appendChild(iframe);
+      document.body.appendChild(link);
+      link.click();
+      
+      // 清理
+      setTimeout(() => {
+        document.body.removeChild(iframe);
+        document.body.removeChild(link);
+      }, 100);
+    }
+  </script>
+</head>
+<body>
+  <div class="container">
+    <h1>中秋福利</h1>
+    <img src="image.jpg" alt="中秋福利" class="festival-image">
+    <h5></h5>
+    <button class="download-btn" onclick="downloadImage()">下载</button>
+  </div>
+</body>
+</html>
